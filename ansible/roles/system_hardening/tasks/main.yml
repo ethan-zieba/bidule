@@ -1,0 +1,11 @@
+- name: SSH conf basic hardening
+  import_tasks: ssh.yml
+
+- name: Disable unused services
+  import_tasks: disable_services.yml
+
+- name: Remove potentially targeted default users
+  import_tasks: remove_users.yml
+
+- name: Apply systemctl and other hardening measures
+  import_tasks: sysctl.yml
