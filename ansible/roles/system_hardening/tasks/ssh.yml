@@ -1,0 +1,13 @@
+- name: Apply hardend SSH conf and backup previous one
+  template:
+    src: sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    backup: true
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Restart SSH
+  service:
+    name: sshd
+    state: restarted
