@@ -1,0 +1,4 @@
+ssh_port: 2002
+permit_root: no
+password_auth: no
+x11_forwarding: no
