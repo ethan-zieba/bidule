@@ -9,3 +9,4 @@
     - update_packages
     - check_services
     - create_admin
+    - filebeat_snort
