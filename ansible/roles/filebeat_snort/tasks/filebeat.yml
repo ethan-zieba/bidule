@@ -1,0 +1,26 @@
+- name: Install Filebeat
+  package:
+    name: filebeat
+    state: present
+
+- name: Copy Filebeat conf
+  template:
+    src: filebeat.yml.j2
+    dest: "{{ filebeat_config_path }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart filebeat
+
+- name: Enable Filebeat mods
+  shell: filebeat modules enable {{ item }}
+  args:
+    warn: false
+  loop: "{{ filebeat_modules }}"
+  notify: Restart filebeat
+
+- name: Enable/start FB
+  service:
+    name: filebeat
+    state: started
+    enabled: true
