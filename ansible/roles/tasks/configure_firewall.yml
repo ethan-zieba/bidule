@@ -1,0 +1,18 @@
+- name: UFW install
+  ansible.builtin.package:
+    name: ufw
+    state: present
+
+- name: 3 main ports through ufw
+  ansible.builtin.ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  loop: "{{ allowed_tcp_ports }}"
+
+- name: Enable UFW (force)
+  ansible.builtin.ufw:
+    state: enabled
+    policy: deny
+    direction: incoming
+    logging: on
