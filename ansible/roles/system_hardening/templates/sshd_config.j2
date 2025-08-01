@@ -1,0 +1,13 @@
+Include /etc/ssh/sshd_config.d/*
+Port {{ ssh_port }}
+PermitRootLogin {{ permit_root }}
+PasswordAuthentication {{ password_auth }}
+PubkeyAuthentication {{ pubkey_auth }}
+AuthorizedKeysFile    {{ authkey_file }}
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding {{ x11_forwarding }}
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+ClientAliveInterval 120
+UseDNS no
