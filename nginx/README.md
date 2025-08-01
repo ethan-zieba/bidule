@@ -37,3 +37,5 @@ Test and restart:
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+
+Then follow a basic permissions and hardening procedure for Nginx, make sur the web app running isn't subject to one of the owasp top 10...
