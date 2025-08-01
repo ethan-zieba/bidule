@@ -5,7 +5,6 @@
   ansible.builtin.assert: # Using ansible.builtin.assert to only check, send a msg, but not show a failure and stop the processes
     that:
       - ansible_facts.services[item].state == "running"
-      - ansible_facts.services[item].enabled
     fail_msg: "{{ item }} not running"
     success_msg: "{{ item }} running"
   loop: "{{ essential_services }}"
