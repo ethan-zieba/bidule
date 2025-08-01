@@ -1,0 +1,10 @@
+# Here to avoid redundancy tmtc
+- name: Restart filebeat
+  service:
+    name: filebeat
+    state: restarted
+
+- name: Restart snort
+  service:
+    name: snort
+    state: restarted
