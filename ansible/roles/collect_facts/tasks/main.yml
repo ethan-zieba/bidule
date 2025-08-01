@@ -4,10 +4,9 @@
 - name: Display facts
   debug:
     msg:
-      - "Host: {{ inventory_hostname }}"
+      - "Host: {{ ansible_hostname }}"
       - "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
       - "Kernel: {{ ansible_kernel }}"
       - "CPU Cores: {{ ansible_processor_cores }}"
       - "Total RAM: {{ (ansible_memtotal_mb / 1024) | round(1) }} GB"
       - "IP Address: {{ ansible_default_ipv4.address }}"
-      - "Hostname: {{ ansible_hostname }}"
