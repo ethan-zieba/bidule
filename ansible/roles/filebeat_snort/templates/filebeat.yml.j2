@@ -5,5 +5,7 @@ filebeat.inputs:
       - /var/log/*.log
       - /var/log/auth.log
       - /var/log/syslog
-
 # No output for now ?
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
