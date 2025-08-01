@@ -1,3 +1,6 @@
+Start the main site.yml playbook using:
+ansible-playbook -i inventory.ini site.yml --ask-vault-password 
+
 Roles checklist:  
 DONE - check_services – Checks the status of essential system services like sshd
 
@@ -9,7 +12,7 @@ DONE - create_admin – Creates ansible_admin sudo user with a hashed password
 
 DONE - configure_firewall – Installs UFW and sets rules for 2002, 80 and 443 ports
 
-filebeat_snort – Installs Filebeat using a template and enables system and auditd modules, installs Snort with minimal configuration for network monitoring
+DONE - filebeat_snort – Installs Filebeat using a template and enables system and auditd modules, installs Snort with minimal configuration for network monitoring
 
 DONE - compliance_check – Checks permissions, users without passwords, and permissive directories
 
