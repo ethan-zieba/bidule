@@ -1,0 +1,29 @@
+- name: Check important files
+  vars:
+    files_to_check:
+      - path: /etc/passwd
+        mode: "0644"
+      - path: /etc/shadow
+        mode: "0600"
+      - path: /etc/sudoers
+        mode: "0440"
+      - path: /etc/ssh/sshd_config
+        mode: "0600"
+
+  block:
+    - name: Verify {{ item.path }}
+      stat:
+        path: "{{ item.path }}"
+      register: file_stat
+      loop: "{{ files_to_check }}"
+      loop_control:
+        label: "{{ item.path }}"
+
+    - name: Report on file {{ item.item.path }}
+      debug:
+        msg: >-
+          File {{ item.item.path }}:
+          Exists = {{ 'Yes' if item.stat.exists else 'No' }},
+          Permissions = {{ item.stat.mode | default('N/A') }},
+          Correct Permissions = {{ (item.stat.mode is defined) and (item.stat.mode == item.item.mode) }}
+      loop: "{{ file_stat.results }}"
