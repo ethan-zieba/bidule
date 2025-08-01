@@ -6,3 +6,4 @@
     - collect_facts
     - configure_firewall
     - copy_file
+    - update_packages
