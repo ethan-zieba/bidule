@@ -18,7 +18,7 @@ DONE - compliance_check – Checks permissions, users without passwords, and per
 
 DONE - system_hardening – Applies settings in sysctl.conf, strengthens PAM, hardens SSH, removes useless users, hardens system globally (disables avahi, cups)
 
-incident_response – Simulates incident response
+DONE - incident_response – Simulates incident response
 
 DONE - vault_example – Testing ansible vault
 
