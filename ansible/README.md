@@ -1,6 +1,11 @@
 Start the main site.yml playbook using:
 `ansible-playbook -i inventory.ini site.yml --ask-vault-password`
 
+Our project's architecture could go cleaner by separating roles in different directories such as `roles/tests`, `roles/system`, etc. 
+We would then have to call the playbooks in `site.yml` using `tests/role_1`, `system/role_2`...
+
+---
+
 Roles checklist:  
 DONE - check_services – Checks the status of essential system services like sshd
 
