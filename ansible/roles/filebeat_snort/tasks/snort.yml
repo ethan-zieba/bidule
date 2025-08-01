@@ -1,0 +1,19 @@
+- name: Install Snort
+  package:
+    name: snort
+    state: present
+
+- name: Configure minimal Snort configuration
+  copy:
+    content: "{{ snort_minimal_conf }}"
+    dest: "{{ snort_conf_path }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart snort
+
+- name: Ensure Snort is started and enabled
+  service:
+    name: snort
+    state: started
+    enabled: true
