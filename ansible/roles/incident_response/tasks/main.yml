@@ -35,10 +35,10 @@
   debug:
     msg: |
       System logs:
-      {{ syslog_tail.stdout }}
+      {{ syslog_tail.stdout | default('No logs available')}}
 
 - name: Debug auth logs tail
   debug:
     msg: |
       Auth logs:
-      {{ authlog_tail.stdout }}
+      {{ authlog_tail.stdout | default('No logs available')}}
