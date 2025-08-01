@@ -3,7 +3,7 @@ check_services – Checks the status of essential system services like sshd
 
 DONE - copy_file – Copies a file from the controller to the target machines
 
-update_packages – Updates all packages depending on the distro
+DONE - update_packages – Updates all packages depending on the distro
 
 create_admin_user – Creates ansible_admin sudo user with a hashed password
 
