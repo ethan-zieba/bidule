@@ -1,0 +1,44 @@
+- name: Find all *.sh files in /tmp
+  find:
+    paths: /tmp
+    patterns: '*.sh'
+  register: sh_scripts
+
+- name: Remove all found malicious scripts
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ sh_scripts.files }}"
+  when: sh_scripts.matched > 0
+
+- name: Syslog Debian
+  command: tail -n 3 /var/log/syslog
+  register: syslog_tail
+  when: ansible_os_family == "Debian"
+
+- name: Messages log Redhat
+  command: tail -n 3 /var/log/messages
+  register: syslog_tail
+  when: ansible_os_family == "RedHat"
+
+- name: Auth log Debian
+  command: tail -n 3 /var/log/auth.log
+  register: authlog_tail
+  when: ansible_os_family == "Debian"
+
+- name: Secure logs Redhat
+  command: tail -n 3 /var/log/secure
+  register: authlog_tail
+  when: ansible_os_family == "RedHat"
+
+- name: Debug system logs tail
+  debug:
+    msg: |
+      System logs:
+      {{ syslog_tail.stdout }}
+
+- name: Debug auth logs tail
+  debug:
+    msg: |
+      Auth logs:
+      {{ authlog_tail.stdout }}
