@@ -1,0 +1,17 @@
+- name: Ensure ansible_admin user exists
+  user:
+    name: ansible_admin
+    comment: "Ansible Admin User"
+    password: "{{ ansible_admin_password }}"
+    groups: "{{ 'sudo' if ansible_distribution in ['Debian', 'Ubuntu'] else 'wheel' }}"
+    append: yes
+    state: present
+    shell: /bin/bash
+
+- name: Ensure sudo privileges for ansible_admin
+  copy:
+    dest: /etc/sudoers.d/ansible_admin
+    content: "ansible_admin ALL=(ALL) NOPASSWD:ALL\n"
+    owner: root
+    group: root
+    mode: '0440'
