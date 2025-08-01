@@ -1,4 +1,4 @@
-Roles checklist:
+Roles checklist:  
 check_services – Checks the status of essential system services like sshd
 
 copy_file – Copies a file from the controller to the target machines
@@ -13,7 +13,7 @@ install_filebeat – Installs Filebeat using a template and enables system and a
 
 compliance_check – Checks permissions, users without passwords, and permissive directories
 
-system_hardening – Applies settings in sysctl.conf, strengthens PAM, hardens SSH, removes useless users, hardens system globally (disables avahi, cups)
+DONE - system_hardening – Applies settings in sysctl.conf, strengthens PAM, hardens SSH, removes useless users, hardens system globally (disables avahi, cups)
 
 install_snort – Installs Snort with minimal configuration for network monitoring
 
@@ -21,4 +21,4 @@ incident_response – Simulates incident response
 
 vault_example – Testing ansible vault
 
-collect_facts – Gathers system facts and displays OS and RAM
+DONE - collect_facts – Gathers system facts and displays OS and RAM
