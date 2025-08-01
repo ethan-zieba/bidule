@@ -1,0 +1,5 @@
+- name: Sys hardening on all servers
+  hosts: allservers
+  become: yes
+  roles:
+    - system_hardening
