@@ -1,3 +1,11 @@
+- name: Add right sources to fix snort install
+  copy:
+    content: "deb http://http.us.debian.org/debian/ bookworm non-free contrib main\n"
+    dest: /etc/apt/sources.list.d/nonfree.list
+    owner: root
+    group: root
+    mode: '0644'
+
 - name: Update apt cache
   apt:
     update_cache: yes
