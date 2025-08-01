@@ -5,3 +5,4 @@
     - system_hardening
     - collect_facts
     - configure_firewall
+    - copy_file
