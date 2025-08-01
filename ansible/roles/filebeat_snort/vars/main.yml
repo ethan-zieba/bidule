@@ -1,0 +1,8 @@
+filebeat_config_path: /etc/filebeat/filebeat.yml
+filebeat_modules:
+  - system
+  - auditd
+
+snort_conf_path: /etc/snort/snort.conf
+snort_minimal_conf: |
+  include $RULE_PATH/snort3-community-rules/snort3-community.rules
