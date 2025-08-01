@@ -9,13 +9,11 @@ DONE - create_admin – Creates ansible_admin sudo user with a hashed password
 
 DONE - configure_firewall – Installs UFW and sets rules for 2002, 80 and 443 ports
 
-install_filebeat – Installs Filebeat using a template and enables system and auditd modules
+filebeat_snort – Installs Filebeat using a template and enables system and auditd modules, installs Snort with minimal configuration for network monitoring
 
 DONE - compliance_check – Checks permissions, users without passwords, and permissive directories
 
 DONE - system_hardening – Applies settings in sysctl.conf, strengthens PAM, hardens SSH, removes useless users, hardens system globally (disables avahi, cups)
-
-install_snort – Installs Snort with minimal configuration for network monitoring
 
 incident_response – Simulates incident response
 
