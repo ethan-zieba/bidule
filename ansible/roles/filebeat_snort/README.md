@@ -1,6 +1,7 @@
 Had trouble installing Snort at first, package wasn't located
-Updated sources.list to add:
-`deb http://http.us.debian.org/debian/ bullseye non-free contrib main`
+Updated sources.list to add:  
+`deb http://http.us.debian.org/debian/ bookworm non-free contrib main`
+(Snort is in the non-free softwares part)
 
 Check manually for Filebeat and Snort:
 ```
