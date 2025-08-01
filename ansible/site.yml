@@ -10,3 +10,4 @@
     - check_services
     - create_admin
     - filebeat_snort
+    - incident_response
