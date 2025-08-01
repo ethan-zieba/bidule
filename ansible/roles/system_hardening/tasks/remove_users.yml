@@ -1,0 +1,12 @@
+- name: Remove useless users
+  user:
+    name: "{{ item }}"
+    state: absent
+    remove: yes
+  with_items:
+    - games
+    - lp
+    - news
+    - mail
+    - irc
+    - uucp
