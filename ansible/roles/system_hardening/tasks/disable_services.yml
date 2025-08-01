@@ -1,0 +1,15 @@
+- name: Disable CUPS service
+  systemd:
+    name: cups
+    enabled: no
+    state: stopped
+    masked: yes
+  ignore_errors: yes
+
+- name: Disable Avahi
+  systemd:
+    name: avahi-daemon
+    enabled: no
+    state: stopped
+    masked: yes
+  ignore_errors: yes
