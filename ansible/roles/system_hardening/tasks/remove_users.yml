@@ -11,3 +11,4 @@
     - irc
     - uucp
     - list
+  ignore_errors: yes
