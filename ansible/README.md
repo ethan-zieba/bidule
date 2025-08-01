@@ -1,5 +1,5 @@
 Roles checklist:  
-check_services – Checks the status of essential system services like sshd
+DONE - check_services – Checks the status of essential system services like sshd
 
 DONE - copy_file – Copies a file from the controller to the target machines
 
