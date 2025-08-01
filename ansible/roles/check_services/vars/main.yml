@@ -1,0 +1,4 @@
+essential_services:
+  - sshd
+  - cron
+  - rsyslog
