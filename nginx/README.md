@@ -4,9 +4,9 @@ sudo apt update
 sudo apt install nginx
 ```
 
-To create a self-signed certificate:
-`sudo mkdir -p /etc/nginx/ssl`
-`cd /etc/nginx/ssl`
+To create a self-signed certificate:  
+`sudo mkdir -p /etc/nginx/ssl`  
+`cd /etc/nginx/ssl`  
 `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./nginx-selfsigned.key -out ./nginx-selfsigned.crt -subj "/C=FR/ST=Provence/L=Marseille/O=LaPlateforme/OU=LaPlateforme/CN=localhost"`
 
 Then edit the conf:
