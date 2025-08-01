@@ -1,5 +1,5 @@
 Start the main site.yml playbook using:
-ansible-playbook -i inventory.ini site.yml --ask-vault-password 
+`ansible-playbook -i inventory.ini site.yml --ask-vault-password`
 
 Roles checklist:  
 DONE - check_services – Checks the status of essential system services like sshd
