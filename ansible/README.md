@@ -5,7 +5,7 @@ DONE - copy_file – Copies a file from the controller to the target machines
 
 DONE - update_packages – Updates all packages depending on the distro
 
-create_admin_user – Creates ansible_admin sudo user with a hashed password
+DONE - create_admin – Creates ansible_admin sudo user with a hashed password
 
 DONE - configure_firewall – Installs UFW and sets rules for 2002, 80 and 443 ports
 
