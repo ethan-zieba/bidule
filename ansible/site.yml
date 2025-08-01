@@ -8,3 +8,4 @@
     - copy_file
     - update_packages
     - check_services
+    - create_admin
