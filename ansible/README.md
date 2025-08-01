@@ -19,6 +19,6 @@ install_snort – Installs Snort with minimal configuration for network monitori
 
 incident_response – Simulates incident response
 
-vault_example – Testing ansible vault
+DONE - vault_example – Testing ansible vault
 
 DONE - collect_facts – Gathers system facts and displays OS and RAM
