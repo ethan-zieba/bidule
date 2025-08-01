@@ -1,7 +1,42 @@
-- name: Install Filebeat
-  package:
-    name: filebeat
-    state: present
+- name: Elastic repos on Deb
+  when: ansible_facts.os_family == "Debian"
+  block:
+    - name: Add Elastic GPG key
+      ansible.builtin.apt_key:
+        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+        state: present
+
+    - name: Add Elastic APT repository
+      ansible.builtin.apt_repository:
+        repo: "deb https://artifacts.elastic.co/packages/8.x/apt stable main"
+        state: present
+        filename: 'elastic-8.x'
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Filebeat
+      ansible.builtin.apt:
+        name: filebeat
+        state: present
+
+- name: Elastic repos on Redhat
+  when: ansible_facts.os_family == "RedHat"
+  block:
+    - name: Add Elastic Yum repository
+      ansible.builtin.yum_repository:
+        name: elastic-8.x
+        description: Elastic repository for 8.x packages
+        baseurl: https://artifacts.elastic.co/packages/8.x/yum
+        gpgcheck: yes
+        gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+        enabled: yes
+
+    - name: Install Filebeat
+      ansible.builtin.yum:
+        name: filebeat
+        state: present
 
 - name: Copy Filebeat conf
   template:
