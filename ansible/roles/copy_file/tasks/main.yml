@@ -1,0 +1,7 @@
+- name: Copy fanclub_cyril.txt to targets
+  ansible.builtin.copy:
+    src: fanclub_cyril.txt
+    dest: /tmp/fanclub_cyril.txt
+    owner: root
+    group: root
+    mode: '0644'
