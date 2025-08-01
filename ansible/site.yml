@@ -3,3 +3,4 @@
   become: yes
   roles:
     - system_hardening
+    - collect_facts
