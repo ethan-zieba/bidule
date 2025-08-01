@@ -1,0 +1,4 @@
+allowed_tcp_ports:
+  - 2002
+  - 80
+  - 443
