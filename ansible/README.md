@@ -7,7 +7,7 @@ update_packages – Updates all packages depending on the distro
 
 create_admin_user – Creates ansible_admin sudo user with a hashed password
 
-configure_firewall – Installs UFW and sets rules for 2002, 80 and 443 ports
+DONE - configure_firewall – Installs UFW and sets rules for 2002, 80 and 443 ports
 
 install_filebeat – Installs Filebeat using a template and enables system and auditd modules
 
