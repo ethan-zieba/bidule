@@ -49,8 +49,6 @@
 
 - name: Enable Filebeat mods
   shell: filebeat modules enable {{ item }}
-  args:
-    warn: false
   loop: "{{ filebeat_modules }}"
   notify: Restart filebeat
 
