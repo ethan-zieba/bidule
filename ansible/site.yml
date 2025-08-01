@@ -7,3 +7,4 @@
     - configure_firewall
     - copy_file
     - update_packages
+    - check_services
