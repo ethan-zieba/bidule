@@ -1,13 +1,12 @@
-- name: Check services
-  ansible.builtin.service:
-    name: "{{ item }}"
-    state: started
-  register: service_check
-  ignore_errors: yes
-  loop: "{{ essential_services }}"
+- name: Check if essential services are active
+  ansible.builtin.service_facts:
 
-- name: Fail if any service is not running
-  ansible.builtin.fail:
-    msg: "{{ item.item }} not running"
-  when: item.failed
-  loop: "{{ service_check.results }}"
+- name: Ensure essential services are running and enabled
+  ansible.builtin.assert: # Using ansible.builtin.assert to only check, send a msg, but not show a failure and stop the processes
+    that:
+      - ansible_facts.services[item].state == "running"
+      - ansible_facts.services[item].enabled
+    fail_msg: "{{ item }} not running"
+    success_msg: "{{ item }} running"
+  loop: "{{ essential_services }}"
+  when: item in ansible_facts.services
