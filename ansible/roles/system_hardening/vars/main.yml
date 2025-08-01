@@ -1,6 +1,15 @@
+# ssh vars
 ssh_port: 2002
 permit_root: no
 password_auth: no
 x11_forwarding: no
 pubkey_auth: yes
 authkey_file: .ssh/authorized_keys
+# sysctl vars
+tcp_syncookies: 1
+ip_forward: 0
+accept_source_route: 0
+accept_redirects: 0
+secure_redirects: 1
+log_martians: 1
+randomize_va_space: 2
