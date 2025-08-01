@@ -1,7 +1,7 @@
 Roles checklist:  
 check_services – Checks the status of essential system services like sshd
 
-copy_file – Copies a file from the controller to the target machines
+DONE - copy_file – Copies a file from the controller to the target machines
 
 update_packages – Updates all packages depending on the distro
 
