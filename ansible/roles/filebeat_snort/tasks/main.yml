@@ -1,0 +1,2 @@
+- import_tasks: filebeat.yml
+- import_tasks: snort.yml
