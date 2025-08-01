@@ -1,0 +1,33 @@
+- name: Check for empty psswds
+  command: awk -F: '($2 == "") { print $1 }' /etc/shadow
+  register: empty_pass_users
+  changed_when: false
+  ignore_errors: yes
+
+- name: Report empty psswds
+  debug:
+    msg: >
+      Users with empty passwords: {{
+        empty_pass_users.stdout_lines
+        if empty_pass_users.stdout_lines | length > 0
+        else "None"
+      }}
+
+- name: Find directories with permissions 777
+  find:
+    paths: /
+    file_type: directory
+    permissions: '0777'
+    recurse: yes
+  register: overly_permissive_dirs
+  ignore_errors: yes
+
+- name: Report directories
+  debug:
+    msg: >
+      Directories with 777 permissions:
+      {{
+        overly_permissive_dirs.files | map(attribute='path') | list
+        if overly_permissive_dirs.matched > 0
+        else "None found"
+      }}
